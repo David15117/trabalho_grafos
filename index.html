@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>teoria-dos-grafos-dijkstra</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+				<span class="sr-only">Navegação</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<center><a class="navbar-brand" href="#">Teoria dos Grafos</a></center>
+			</div><!-- /.navbar-header -->
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Dijkstra</a></li>
+					<li><a href="app.html">Implementação</a></li>
+					<li><a href="mapa.html">Mapa Base</a></li>
+					<li><a href="sobre.html">Sobre</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<div class="container"  tyle="text-align: center">
+		<h1 style="text-align: center">Algoritmo de Dijkstra</h1>
+		<p>O algoritmo mais utilizado para determinar o menor caminho entre dois nós de um grafo foi desenvolvido por Edsger Wybe Dijkstra e publicado em 1959. Sua utilização se deve a não necessidade de uma busca exaustiva em todos os caminhos, característica que permite um aumento da eficiência da busca.</p>
+		<p>Segundo Tenenbaum et al. (1995) e Cormem et al. (1999), implementando-se uma fila de prioridades com um heap ascendente o algoritmo pode executar utilizando O((e+n)logn) operações, onde e é o número de arestas e n é o número de vértices. Na solução desenvolvida neste trabalho, por questões de simplicidade, optou-se por implementar uma fila de prioridade baseada em matriz de adjacências, o que faz com
+		que a complexidade do algoritmo seja O(n2). Em Neves (2007) e Ahuja et al. (1990) podem ser obtidas variações mais eficientes do algoritmo.</p>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

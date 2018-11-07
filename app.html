@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>teoria-dos-grafos-dijkstra</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+	<!-- header -->
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="sr-only">Navegação</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Teoria dos Grafos</a>
+			</div><!-- /.navbar-header -->
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Dijkstra</a></li>
+					<li class="active" ><a href="#">Implementação</a></li>
+					<li><a href="mapa.html">Mapa Base</a></li>
+					<li><a href="sobre.html">Sobre</a></li
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<!-- /header -->
+
+	<!-- content -->
+	<div class="container" >
+
+		<h1>Rotas Versão Beta</h1>
+		<p> Tendo em vista que a cidade de Palmas oferece uma grande quantidade de eventos para seus moradores, muitos deles utilizam o transporte público para locomover-se, o algoritmo descrito no artigo tem capacidade de criar melhores rotas para atender tais eventos com agilidade e facilidade ao público alvo. Um exemplo seria o festival gastronômico de Taquaruçu ele ocorre todo ano contendo várias atrações, atraindo a presença de milhares de pessoas tornando a locomoção difícil. O algoritmo pode-se definir pontos fixos com uma rota (expressa) aumentou consideravelmente a velocidade de chegada ao destino, atendendo com melhor qualidade os seus usuários.</p>
+		<p>Pontos Base para aplicação do sistema(Versão Beta 1.0)</p>
+		<img  style="text-align: center" src="img/base.png">
+
+	(<a href="texte.xml" target="_blank">Grafo Gerado</a>).</p>>
+		<p> Definição Destindo</p>
+
+		<!-- aplicação -->
+		<form class="form">
+
+			<div class="form-group row"  >
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<label for="origem">Ponto de Origem</label>
+					<select class="form-control" id="origem">
+							<option value="TAQUARI">TAQUARI</option>
+							<option value="ESTACAO_JAVAE">ESTACAO_JAVAE</option>
+							<option value="ESTACAO_KARAJA">ESTACAO_KARAJA</option>
+							<option value="ESTACAO_XERENTE">ESTACAO_XERENTE</option>
+							<option value="ESTACAO_KRAHO">ESTACAO_KRAHO</option>
+							<option value="ESTACAO_XAMBIOA">ESTACAO_XAMBIOA</option>
+							<option value="ESTACAO_APINAJE">ESTACAO_APINAJE</option>
+							<option value="104_SUL">104_SUL</option>
+							<option value="104_NORTE">104_NORTE</option>
+							<option value="306_SUL">306_SUL</option>
+							<option value="206_SUL">206_SUL</option>
+							<option value="BURITIRANA">BURITIRANA</option>
+							<option value="TAQUARUCU">TAQUARUCU</option>
+							<option value="TAQUARALTO">TAQUARALTO</option>
+							<option value="BERTAVILLE">BERTAVILLE</option>
+							<option value="305_SUL">305_SUL</option>
+							<option value="411_NORTE">411_NORTE</option>
+							<option value="106_SUL">106_SUL</option>
+							<option value="409_NORTE">409_NORTE</option>
+							<option value="1202_SUL">1202_SUL</option>
+							<option value="1306_SUL">1306_SUL</option>
+							<option value="SANTA_BARBARA">SANTA_BARBARA</option>
+							<option value="203_N">203_N</option>
+							<option value="AURENY_III">AURENY_III</option>
+							<option value="305_NORTE">305_NORTE</option>
+					</select>
+				</div>
+
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<label for="destino">Ponto de Destino</label>
+					<select class="form-control" id="destino">
+							<option value="TAQUARI">TAQUARI</option>
+							<option value="ESTACAO_JAVAE">ESTACAO_JAVAE</option>
+							<option value="ESTACAO_KARAJA">ESTACAO_KARAJA</option>
+							<option value="ESTACAO_XERENTE">ESTACAO_XERENTE</option>
+							<option value="ESTACAO_KRAHO">ESTACAO_KRAHO</option>
+							<option value="ESTACAO_XAMBIOA">ESTACAO_XAMBIOA</option>
+							<option value="ESTACAO_APINAJE">ESTACAO_APINAJE</option>
+							<option value="104_SUL">104_SUL</option>
+							<option value="104_NORTE">104_NORTE</option>
+							<option value="306_SUL">306_SUL</option>
+							<option value="206_SUL">206_SUL</option>
+							<option value="BURITIRANA">BURITIRANA</option>
+							<option value="TAQUARUCU">TAQUARUCU</option>
+							<option value="TAQUARALTO">TAQUARALTO</option>
+							<option value="BERTAVILLE">BERTAVILLE</option>
+							<option value="305_SUL">305_SUL</option>
+							<option value="411_NORTE">411_NORTE</option>
+							<option value="106_SUL">106_SUL</option>
+							<option value="409_NORTE">409_NORTE</option>
+							<option value="1202_SUL">1202_SUL</option>
+							<option value="1306_SUL">1306_SUL</option>
+							<option value="SANTA_BARBARA">SANTA_BARBARA</option>
+							<option value="203_N">203_N</option>
+							<option value="AURENY_III">AURENY_III</option>
+							<option value="305_NORTE">305_NORTE</option>
+
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Buscar menor caminho!</button>
+			</div>
+			<div class="form-group">
+				<textarea class="form-control" id="caminho" rows="3" placeholder="Menor caminho..." readonly></textarea>
+			</div><!-- /form-group row -->
+
+		</form>
+		<!-- /aplicação -->
+
+	</div>
+	<!-- /content -->
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/dijkstra.js"></script>
+	<script type="text/javascript">
+		<!-- construirGrafo -->
+		var dijkstra = new Dijkstra();
+		dijkstra.setGraph(
+			[
+		['TAQUARI',[['SANTA_BARBARA',5],['1306_SUL',12.3],['203_NORTE',21.5],['AURENY_III',2.9],['305_NORTE',23.4],['1202_SUL',11.4],['106_SUL',20.9],['409_NORTE',24],['411_NORTE',24.6],['305_SUL',19.4],['BERTAVILLE',7.5],['TAQUARALTO',6.3],['TAQUARUCU',23.3],['BURITIRANA',58.7],['206_SUL',19.3],['306_SUL',20],['104_NORTE',20.3],['104_SUL',20.6],['ESTACAO_APINAJE',20.9],['ESTACAO_XAMBIOA',15.4],['ESTACAO_KRAHO',11.3],['ESTACAO_XERENTE',5.5],['ESTACAO_KARAJA',7],['ESTACAO_JAVAE',4.8]]],
+		['ESTACAO_JAVAE',[['SANTA_BARBARA',1.3],['1306_SUL',11.7],['203_NORTE',21.7],['AURENY_III',3.3],['305_NORTE',24.8],['1202_SUL',12.7],['106_SUL',20.4],['409_NORTE',24.2],['411_NORTE',25.9],['305_SUL',20.6],['BERTAVILLE',6.3],['TAQUARALTO',0.8],['TAQUARUCU',17.8],['BURITIRANA',53.2],['206_SUL',18.3],['306_SUL',17.6],['104_NORTE',20.8],['104_SUL',20.4],['ESTACAO_APINAJE',21.8],['ESTACAO_XAMBIOA',15.7],['ESTACAO_KRAHO',11.8],['ESTACAO_XERENTE',4.2],['ESTACAO_KARAJA',2.6],['TAQUARI',4.8]]],
+		['ESTACAO_KARAJA',[['SANTA_BARBARA',3.8],['1306_SUL',10.2],['203_NORTE',21.6],['AURENY_III',4.4],['305_NORTE',23.3],['1202_SUL',9.7],['106_SUL',18.9],['409_NORTE',22.4],['411_NORTE',24.4],['305_SUL',19.1],['BERTAVILLE',3.6],['TAQUARALTO',3.2],['TAQUARUCU',20.1],['BURITIRANA',55.5],['206_SUL',16.9],['306_SUL',16.1],['104_NORTE',18.5],['104_SUL',18.8],['ESTACAO_APINAJE',20.3],['ESTACAO_XAMBIOA',14.3],['ESTACAO_KRAHO',9.5],['ESTACAO_XERENTE',1.8],['ESTACAO_JAVAE',2.6],['TAQUARI',7]]],
+		['ESTACAO_XERENTE',[['SANTA_BARBARA',5.2],['1306_SUL',8.6],['203_NORTE',17.5],['AURENY_III',2.3],['305_NORTE',19.7],['1202_SUL',7.7],['106_SUL',17.2],['409_NORTE',20.3],['411_NORTE',20.9],['305_SUL',15.8],['BERTAVILLE',4.1],['TAQUARALTO',4.9],['TAQUARUCU',21.8],['BURITIRANA',57.2],['206_SUL',15.6],['306_SUL',16.3],['104_NORTE',16.6],['104_SUL',16.7],['ESTACAO_APINAJE',17.2],['ESTACAO_XAMBIOA',11.7],['ESTACAO_KRAHO',7.6],['ESTACAO_KARAJA',1.8],['ESTACAO_JAVAE',4.2],['TAQUARI',5.5]]],
+		['ESTACAO_KRAHO',[['SANTA_BARBARA',12.9],['1306_SUL',2.4],['203_NORTE',10.1],['AURENY_III',9.3],['305_NORTE',12],['1202_SUL',1.4],['106_SUL',9.5],['409_NORTE',12.7],['411_NORTE',13.2],['305_SUL',8.2],['BERTAVILLE',8.2],['TAQUARALTO',12.8],['TAQUARUCU',29.8],['BURITIRANA',65.2],['206_SUL',8],['306_SUL',8.7],['104_NORTE',8.9],['104_SUL',9.3],['ESTACAO_APINAJE',9.6],['ESTACAO_XAMBIOA',4.1],['ESTACAO_XERENTE',7.6],['ESTACAO_KARAJA',9.5],['ESTACAO_JAVAE',11.8],['TAQUARI',11.3]]],
+		['ESTACAO_XAMBIOA',[['SANTA_BARBARA',17.1],['1306_SUL',6.9],['203_NORTE',6],['AURENY_III',13.6],['305_NORTE',7.9],['1202_SUL',5.7],['106_SUL',5.4],['409_NORTE',8.6],['411_NORTE',9.1],['305_SUL',4.1],['BERTAVILLE',12.4],['TAQUARALTO',17.1],['TAQUARUCU',34],['BURITIRANA',69.1],['206_SUL',3.8],['306_SUL',3.7],['104_NORTE',4.8],['104_SUL',5.2],['ESTACAO_APINAJE',5.5],['ESTACAO_KRAHO',4.1],['ESTACAO_XERENTE',11.7],['ESTACAO_KARAJA',14.3],['ESTACAO_JAVAE',15.7],['TAQUARI',15.4]]],
+		['ESTACAO_APINAJE',[['SANTA_BARBARA',22.7],['1306_SUL',11.6],['203_NORTE',1.3],['AURENY_III',18.7],['305_NORTE',3.2],['1202_SUL',10.8],['106_SUL',1.8],['409_NORTE',3.4],['411_NORTE',4.4],['305_SUL',4.3],['BERTAVILLE',21.7],['TAQUARALTO',22.2],['TAQUARUCU',39.1],['BURITIRANA',74.5],['206_SUL',4],['306_SUL',4.7],['104_NORTE',1.9],['104_SUL',2.5],['ESTACAO_XAMBIOA',5.5],['ESTACAO_KRAHO',9.6],['ESTACAO_XERENTE',17.2],['ESTACAO_KARAJA',20.3],['ESTACAO_JAVAE',21.8],['TAQUARI',20.9]]],
+		['104_SUL',[['SANTA_BARBARA',21.4],['1306_SUL',10.3],['203_NORTE',2.8],['AURENY_III',17.6],['305_NORTE',4.6],['1202_SUL',9.8],['106_SUL',0.5],['409_NORTE',4.7],['411_NORTE',5.8],['305_SUL',4],['BERTAVILLE',16.5],['TAQUARALTO',21.1],['TAQUARUCU',38.1],['BURITIRANA',74.6],['206_SUL',2.7],['306_SUL',3.5],['104_NORTE',0.45],['ESTACAO_APINAJE',2.5],['ESTACAO_XAMBIOA',5.2],['ESTACAO_KRAHO',9.3],['ESTACAO_XERENTE',16.7],['ESTACAO_KARAJA',18.8],['ESTACAO_JAVAE',20.4],['TAQUARI',20.6]]],
+		['104_NORTE',[['SANTA_BARBARA',22],['1306_SUL',10.9],['203_NORTE',2.8],['AURENY_III',18.3],['305_NORTE',4.9],['1202_SUL',10.4],['106_SUL',0.5],['409_NORTE',5.6],['411_NORTE',6.2],['305_SUL',4.6],['BERTAVILLE',20],['TAQUARALTO',21.8],['TAQUARUCU',38.8],['BURITIRANA',74.1],['206_SUL',2.1],['306_SUL',2.8],['104_SUL',0.45],['ESTACAO_APINAJE',1.9],['ESTACAO_XAMBIOA',4.8],['ESTACAO_KRAHO',8.9],['ESTACAO_XERENTE',16.6],['ESTACAO_KARAJA',18.5],['ESTACAO_JAVAE',20.8],['TAQUARI',20.3]]],
+		['306_SUL',[['SANTA_BARBARA',20.3],['1306_SUL',11.6],['203_NORTE',4.9],['AURENY_III',16.7],['305_NORTE',6.6],['1202_SUL',8.8],['106_SUL',1.5],['409_NORTE',7.3],['411_NORTE',7.8],['305_SUL',3],['BERTAVILLE',18.4],['TAQUARALTO',20.2],['TAQUARUCU',37.1],['BURITIRANA',72.5],['206_SUL',0.6],['104_NORTE',2.8],['104_SUL',3.5],['ESTACAO_APINAJE',4.7],['ESTACAO_XAMBIOA',3.7],['ESTACAO_KRAHO',8.7],['ESTACAO_XERENTE',16.3],['ESTACAO_KARAJA',16.1],['ESTACAO_JAVAE',17.6],['TAQUARI',20]]],
+		['206_SUL',[['SANTA_BARBARA',19.2],['1306_SUL',10.8],['203_NORTE',5.4],['AURENY_III',17.4],['305_NORTE',7.1],['1202_SUL',9.6],['106_SUL',1.5],['409_NORTE',7.8],['411_NORTE',8.3],['305_SUL',3.7],['BERTAVILLE',17.6],['TAQUARALTO',19.4],['TAQUARUCU',36.4],['BURITIRANA',71.8],['306_SUL',0.6],['104_NORTE',2.1],['104_SUL',2.7],['ESTACAO_APINAJE',4],['ESTACAO_XAMBIOA',3.8],['ESTACAO_KRAHO',8],['ESTACAO_XERENTE',15.6],['ESTACAO_KARAJA',16.9],['ESTACAO_JAVAE',18.3],['TAQUARI',19.3]]],
+		['BURITIRANA',[['SANTA_BARBARA',54.7],['1306_SUL',65.1],['203_NORTE',76.5],['AURENY_III',57.7],['305_NORTE',78.3],['1202_SUL',66.2],['106_SUL',73.8],['409_NORTE',78.1],['411_NORTE',79.4],['305_SUL',74],['BERTAVILLE',59.7],['TAQUARALTO',53.4],['TAQUARUCU',35.9],['206_SUL',71.8],['306_SUL',72.5],['104_NORTE',74.1],['104_SUL',74.6],['ESTACAO_APINAJE',74.5],['ESTACAO_XAMBIOA',69.1],['ESTACAO_KRAHO',65.2],['ESTACAO_XERENTE',57.2],['ESTACAO_KARAJA',55.5],['ESTACAO_JAVAE',53.2],['TAQUARI',58.7]]],
+		['TAQUARUCU',[['SANTA_BARBARA',18.7],['1306_SUL',29.2],['203_NORTE',39.2],['AURENY_III',21.8],['305_NORTE',42.3],['1202_SUL',30.2],['106_SUL',38.9],['409_NORTE',42.1],['411_NORTE',43.4],['305_SUL',38.1],['BERTAVILLE',23.8],['TAQUARALTO',17.5],['BURITIRANA',35.9],['206_SUL',36.4],['306_SUL',37.1],['104_NORTE',38.8],['104_SUL',38.1],['ESTACAO_APINAJE',39.1],['ESTACAO_XAMBIOA',34],['ESTACAO_KRAHO',29.8],['ESTACAO_XERENTE',21.8],['ESTACAO_KARAJA',20.1],['ESTACAO_JAVAE',17.8],['TAQUARI',23.3]]],
+		['TAQUARALTO',[['SANTA_BARBARA',1.4],['1306_SUL',12.7],['203_NORTE',22.7],['AURENY_III',5.1],['305_NORTE',25.8],['1202_SUL',13.7],['106_SUL',21.3],['409_NORTE',26.2],['411_NORTE',26.9],['305_SUL',21.5],['BERTAVILLE',7.3],['TAQUARUCU',17.5],['BURITIRANA',53.4],['206_SUL',19.4],['306_SUL',20.2],['104_NORTE',21.8],['104_SUL',21.1],['ESTACAO_APINAJE',22.2],['ESTACAO_XAMBIOA',17.1],['ESTACAO_KRAHO',12.8],['ESTACAO_XERENTE',4.9],['ESTACAO_KARAJA',3.2],['ESTACAO_JAVAE',0.8],['TAQUARI',6.3]]],		
+		['BERTAVILLE',[['SANTA_BARBARA',8.8],['1306_SUL',8.3],['203_NORTE',17.4],['AURENY_III',4.8],['305_NORTE',19.3],['1202_SUL',7.3],['106_SUL',16.8],['409_NORTE',20],['411_NORTE',20.5],['305_SUL',15.5],['TAQUARALTO',7.3],['TAQUARUCU',23.8],['BURITIRANA',59.7],['206_SUL',17.6],['306_SUL',18.4],['104_NORTE',20],['104_SUL',16.5],['ESTACAO_APINAJE',21.7],['ESTACAO_XAMBIOA',12.4],['ESTACAO_KRAHO',8.2],['ESTACAO_XERENTE',4.1],['ESTACAO_KARAJA',3.6],['ESTACAO_JAVAE',6.3],['TAQUARI',7.5]]],
+		['305_SUL',[['SANTA_BARBARA',20.7],['1306_SUL',10.3],['203_NORTE',4.3],['AURENY_III',17.1],['305_NORTE',5.8],['1202_SUL',9.3],['106_SUL',4.6],['409_NORTE',6.5],['411_NORTE',6.2],['BERTAVILLE',15.5],['TAQUARALTO',21.5],['TAQUARUCU',38.1],['BURITIRANA',74],['206_SUL',3.7],['306_SUL',3],['104_NORTE',4.6],['104_SUL',4],['ESTACAO_APINAJE',4.3],['ESTACAO_XAMBIOA',4.1],['ESTACAO_KRAHO',8.2],['ESTACAO_XERENTE',15.8],['ESTACAO_KARAJA',19.1],['ESTACAO_JAVAE',20.6],['TAQUARI',19.4]]],
+		['411_NORTE',[['SANTA_BARBARA',25.6],['1306_SUL',15.2],['203_NORTE',3.3],['AURENY_III',22],['305_NORTE',1.9],['1202_SUL',14.1],['106_SUL',6.1],['409_NORTE',1.3],['305_SUL',6.2],['BERTAVILLE',20.5],['TAQUARALTO',26.9],['TAQUARUCU',43.4],['BURITIRANA',79.4],['206_SUL',8.3],['306_SUL',7.8],['104_NORTE',6.2],['104_SUL',5.8],['ESTACAO_APINAJE',4.4],['ESTACAO_XAMBIOA',9.1],['ESTACAO_KRAHO',13.2],['ESTACAO_XERENTE',20.9],['ESTACAO_KARAJA',24.4],['ESTACAO_JAVAE',25.9],['TAQUARI',24.6]]],
+		['106_SUL',[['SANTA_BARBARA',21.3],['1306_SUL',10.3],['203_NORTE',3.7],['AURENY_III',17.7],['305_NORTE',5.4],['1202_SUL',9.8],['409_NORTE',5.3],['411_NORTE',6.1],['305_SUL',4.6],['BERTAVILLE',16.8],['TAQUARALTO',21.3],['TAQUARUCU',38.9],['BURITIRANA',73.8],['206_SUL',1.5],['306_SUL',1.5],['104_NORTE',0.5],['104_SUL',0.5],['ESTACAO_APINAJE',1.8],['ESTACAO_XAMBIOA',5.4],['ESTACAO_KRAHO',9.5],['ESTACAO_XERENTE',17.2],['ESTACAO_KARAJA',18.9],['ESTACAO_JAVAE',20.4],['TAQUARI',20.9]]],
+		['409_NORTE',[['SANTA_BARBARA',25.7],['1306_SUL',18.3],['203_NORTE',3.3],['AURENY_III',22.1],['305_NORTE',2.5],['1202_SUL',14.3],['106_SUL',5.3],['411_NORTE',1.3],['305_SUL',6.5],['BERTAVILLE',20],['TAQUARALTO',26.2],['TAQUARUCU',42.1],['BURITIRANA',78.1],['206_SUL',7.8],['306_SUL',7.3],['104_NORTE',5.6],['104_SUL',4.7],['ESTACAO_APINAJE',3.4],['ESTACAO_XAMBIOA',8.6],['ESTACAO_KRAHO',12.7],['ESTACAO_XERENTE',20.3],['ESTACAO_KARAJA',22.4],['ESTACAO_JAVAE',24.2],['TAQUARI',24]]],
+		['1202_SUL',[['SANTA_BARBARA',11.4],['1306_SUL',1.7],['203_NORTE',11.7],['AURENY_III',7.9],['305_NORTE',13.6],['106_SUL',9.8],['409_NORTE',14.3],['411_NORTE',14.1],['305_SUL',9.3],['BERTAVILLE',7.3],['TAQUARALTO',13.7],['TAQUARUCU',30.2],['BURITIRANA',66.2],['206_SUL',9.6],['306_SUL',8.8],['104_NORTE',10.4],['104_SUL',9.8],['ESTACAO_APINAJE',10.8],['ESTACAO_XAMBIOA',5.7],['ESTACAO_KRAHO',1.4],['ESTACAO_XERENTE',7.7],['ESTACAO_KARAJA',9.7],['ESTACAO_JAVAE',12.7],['TAQUARI',11.4]]],
+		['1306_SUL',[['SANTA_BARBARA',12.5],['1306_SUL',0],['203_NORTE',12.2],['AURENY_III',9.8],['305_NORTE',13.5],['1202_SUL',1.7],['106_SUL',10.3],['409_NORTE',18.3],['411_NORTE',15.2],['305_SUL',10.3],['BERTAVILLE',8.3],['TAQUARALTO',12.7],['TAQUARUCU',29.2],['BURITIRANA',65.1],['206_SUL',10.8],['306_SUL',11.6],['104_NORTE',10.9],['104_SUL',10.3],['ESTACAO_APINAJE',11.6],['ESTACAO_XAMBIOA',6.9],['ESTACAO_KRAHO',2.4],['ESTACAO_XERENTE',8.6],['ESTACAO_KARAJA',10.2],['ESTACAO_JAVAE',11.7],['TAQUARI',12.3]]],
+		['SANTA_BARBARA',[['1306_SUL',12.5],['203_NORTE',22.6],['AURENY_III',3.7],['305_NORTE',23.8],['1202_SUL',11.4],['106_SUL',21.3],['409_NORTE',25.7],['411_NORTE',25.6],['305_SUL',20.7],['BERTAVILLE',8.8],['TAQUARALTO',1.4],['TAQUARUCU',18.7],['BURITIRANA',54.7],['206_SUL',19.2],['306_SUL',20.3],['104_NORTE',22],['104_SUL',21.4],['ESTACAO_APINAJE',22.7],['ESTACAO_XAMBIOA',17.1],['ESTACAO_KRAHO',12.9],['ESTACAO_XERENTE',5.2],['ESTACAO_KARAJA',3.8],['ESTACAO_JAVAE',1.3],['TAQUARI',5]]],
+		['203_N',[['SANTA_BARBARA',22.6],['1306_SUL',12.2],['AURENY_III',18.9],['305_NORTE',1.3],['1202_SUL',11.7],['106_SUL',3.7],['409_NORTE',3.3],['411_NORTE',3.3],['305_SUL',4.3],['BERTAVILLE',17.4],['TAQUARALTO',22.7],['TAQUARUCU',39.2],['BURITIRANA',76.5],['206_SUL',5.4],['306_SUL',4.9],['104_NORTE',2.8],['104_SUL',2.8],['ESTACAO_APINAJE',1.3],['ESTACAO_XAMBIOA',6],['ESTACAO_KRAHO',10.1],['ESTACAO_XERENTE',17.5],['ESTACAO_KARAJA',21.6],['ESTACAO_JAVAE',21.7],['TAQUARI',21.5]]],
+		['AURENY_III',[['SANTA_BARBARA',3.7],['1306_SUL',9.8],['203_NORTE',18.9],['305_NORTE',20.3],['1202_SUL',7.9],['106_SUL',17.7],['409_NORTE',22.1],['411_NORTE',22],['305_SUL',17.1],['BERTAVILLE',4.8],['TAQUARALTO',5.1],['TAQUARUCU',21.8],['BURITIRANA',57.7],['206_SUL',17.4],['306_SUL',16.7],['104_NORTE',18.3],['104_SUL',17.6],['ESTACAO_APINAJE',18.7],['ESTACAO_XAMBIOA',13.6],['ESTACAO_KRAHO',9.3],['ESTACAO_XERENTE',2.3],['ESTACAO_KARAJA',4.4],['ESTACAO_JAVAE',3.3],['TAQUARI',2.9]]],
+		['305_NORTE',[['SANTA_BARBARA',23.8],['1306_SUL',13.5],['203_NORTE',1.3],['AURENY_III',20.3],['1202_SUL',13.6],['106_SUL',5.4],['409_NORTE',2.5],['411_NORTE',1.9],['305_SUL',5.8],['BERTAVILLE',19.3],['TAQUARALTO',25.8],['TAQUARUCU',42.3],['BURITIRANA',78.3],['206_SUL',7.1],['306_SUL',6.6],['104_NORTE',4.9],['104_SUL',4.6],['ESTACAO_APINAJE',3.2],['ESTACAO_XAMBIOA',7.9],['ESTACAO_KRAHO',12],['ESTACAO_XERENTE',19.7],['ESTACAO_KARAJA',23.3],['ESTACAO_JAVAE',24.8],['TAQUARI',23.4]]],
+		],
+		);
+		<!-- /construirGrafo -->
+
+		//evento invocado durante o envio do formulário
+		$('form').submit(function(event) {
+			event.preventDefault();
+			//executado algoritmo de dijkstra para buscar menor caminho entre as cidades
+			var caminho = dijkstra.getPath($('#origem').val(), $("#destino").val());
+			//incluída a cidade de origem no início do caminho
+			caminho.unshift($('#origem').val());
+			//criada uma nova string a partir do array separando os vértices por setas e exibido no campo resultado
+			$('#caminho').val(caminho.join(' => '));
+		});
+	</script>
+</body>
+</html>
